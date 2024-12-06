@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HangmanAssignment"
+             x:Class="HangmanAssignment.HangmanGamePage"
+             Title="MAUI Hangman Assignment">
+    <ContentPage.BindingContext>
+        <local:myViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label Text="Welcome to Hangman" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="40"/>
+
+        <Image Margin="40" Source="{Binding HangmanImage}" HorizontalOptions="Center"/>
+
+        <Label 
+            Text="{Binding AttemptsMessage}" 
+            HorizontalOptions="Center" 
+            TextColor="Red" 
+            FontAttributes="Bold"/>
+
+        <Label 
+            FontAttributes="Bold" 
+            FontSize="30" 
+            HorizontalOptions="Center" 
+            Margin="40" 
+            Text="{Binding DisplayWord}"/>
+
+        <Entry 
+            FontSize="30" 
+            HorizontalOptions="Center" 
+            Margin="40" 
+            Placeholder="Enter your next guess" 
+            Text="{Binding CurrentGuess}"
+            MaxLength="1"/>
+
+        <Button Text="Guess" Command="{Binding GuessCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
